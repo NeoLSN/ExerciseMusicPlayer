@@ -1,10 +1,7 @@
-package com.android.mapproject.di
+package com.android.exerciseapp.di
 
 import android.app.Activity
 import android.app.Application
-import com.android.exerciseapp.di.AppModule
-import com.android.exerciseapp.di.MainActivityBuilder
-import com.android.exerciseapp.di.ViewModelModule
 import com.android.exerciseapp.di.androidx.AndroidXInjectionModule
 import dagger.BindsInstance
 import dagger.Component
@@ -19,6 +16,7 @@ import javax.inject.Singleton
     AppModule::class,
     MainActivityBuilder::class,
     ViewModelModule::class,
+    ServiceModule::class,
     AndroidXInjectionModule::class
 ])
 interface AppComponent {

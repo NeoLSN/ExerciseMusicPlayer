@@ -1,8 +1,8 @@
 package com.android.exerciseapp
 
 import android.app.Application
-import com.android.mapproject.di.AppComponent
-import com.android.mapproject.di.DaggerAppComponent
+import com.android.exerciseapp.di.AppComponent
+import com.android.exerciseapp.di.DaggerAppComponent
 import dagger.android.HasActivityInjector
 
 /**
