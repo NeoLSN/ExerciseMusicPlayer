@@ -141,8 +141,18 @@ class PlayingFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
+    override fun onResume() {
+        super.onResume()
+        exoPlayer.playWhenReady = isPlaying
+    }
+
+    override fun onStop() {
         exoPlayer.stop()
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        exoPlayer.release()
         super.onDestroy()
     }
 
