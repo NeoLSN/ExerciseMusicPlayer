@@ -1,7 +1,8 @@
-package com.android.exerciseapp
+package com.android.exerciseapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.android.exerciseapp.R
 
 class MainActivity : AppCompatActivity() {
 
