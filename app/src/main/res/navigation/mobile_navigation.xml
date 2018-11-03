@@ -7,5 +7,17 @@
     <fragment android:id="@+id/podcastListFragment"
               android:name="com.android.exerciseapp.presentation.podcastlist.PodcastListFragment"
               android:label="PodcastListFragment"
-              tools:layout="@layout/fragment_podcast_list"/>
+              tools:layout="@layout/fragment_podcast_list">
+        <action android:id="@+id/action_podcastListFragment_to_playingFragement"
+                app:destination="@id/playingFragement"/>
+    </fragment>
+    <fragment android:id="@+id/playingFragement"
+              android:name="com.android.exerciseapp.presentation.playing.PlayingFragment"
+              android:label="PlayingFragement"
+              tools:layout="@layout/fragment_playing" >
+
+        <argument
+                android:name="podcastPath"
+                app:argType="string"/>
+    </fragment>
 </navigation>

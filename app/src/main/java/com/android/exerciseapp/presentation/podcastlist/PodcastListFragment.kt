@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.exerciseapp.R
 import com.android.exerciseapp.databinding.FragmentPodcastListBinding
 import com.android.exerciseapp.di.androidx.AndroidXInjection
 import com.android.exerciseapp.presentation.ViewModelFactory
 import com.android.exerciseapp.presentation.common.Result
+import com.android.exerciseapp.presentation.podcastlist.PodcastListFragmentDirections.actionPodcastListFragmentToPlayingFragement
 import com.android.exerciseapp.util.recyclerview.setLinearDivider
 import javax.inject.Inject
 
@@ -57,6 +59,12 @@ class PodcastListFragment : Fragment() {
         viewDataBinding.placeList.apply {
             listAdapter = PodcastsAdapter()
             adapter = listAdapter
+            listAdapter.onItemClick = { path ->
+                if (path is String) {
+                    val navDirections = actionPodcastListFragmentToPlayingFragement(path)
+                    view?.run { Navigation.findNavController(this).navigate(navDirections) }
+                }
+            }
 
             val lm = LinearLayoutManager(context)
             layoutManager = lm

@@ -16,6 +16,8 @@ import java.util.*
  */
 class PodcastsAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
+    var onItemClick: ((obj: Any) -> Unit)? = null
+
     var items: List<String> = Collections.emptyList()
         set(newItems) {
             val cb = AdapterDiffCallback(field, newItems)
@@ -34,7 +36,12 @@ class PodcastsAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        val place = items[position]
-        holder.bindVariable(BR.podcast, place)
+        val path = items[position]
+        holder.bindVariable(BR.podcast, path)
+        onItemClick?.let { listener ->
+            holder.itemView.setOnClickListener {
+                listener(path)
+            }
+        }
     }
 }
