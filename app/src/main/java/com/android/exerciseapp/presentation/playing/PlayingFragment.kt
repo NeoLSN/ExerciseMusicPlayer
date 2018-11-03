@@ -147,11 +147,12 @@ class PlayingFragment : Fragment() {
     }
 
     override fun onStop() {
-        exoPlayer.stop()
+        exoPlayer.playWhenReady = false
         super.onStop()
     }
 
     override fun onDestroy() {
+        exoPlayer.stop()
         exoPlayer.release()
         super.onDestroy()
     }
